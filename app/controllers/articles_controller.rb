@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
     end
 
     def new
-        
+        @articles = Article.all
     end
 
     def show
@@ -19,6 +19,20 @@ class ArticlesController < ApplicationController
        
         @article.save
         redirect_to new_article_path, notice: 'Article was successfully created.'
+    end
+
+    def edit
+        @article = Article.find(params[:id])
+    end
+
+    def update
+        @article = Article.find(params[:id])
+       
+        if @article.update(article_params)
+          redirect_to @article
+        else
+          render 'edit'
+        end
     end
        
     private

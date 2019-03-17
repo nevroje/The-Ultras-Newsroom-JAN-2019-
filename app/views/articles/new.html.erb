@@ -8,4 +8,11 @@
       <%= form.submit %>
 <% end %>
 
+<% @articles.each do |article|%>
+    <%=  link_to(article_path(article)) do %>
+        <%= article.title %>
+        <%= article.lead %>
+    <% end %>
+<% end %>
+
 <%= link_to 'Back', articles_path %>
