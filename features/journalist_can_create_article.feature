@@ -30,4 +30,4 @@ Feature: Journalist can create articles
         Given I am logged in as "alecia@craft.se"
         And I visit the journalist page
         Then I should see "Permission denied"
-        And I should be on the landing page
+        And I should be on the "root_path" page
