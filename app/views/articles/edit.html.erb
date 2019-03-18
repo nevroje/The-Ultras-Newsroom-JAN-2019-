@@ -39,12 +39,11 @@
     <p> 
         <%= link_to 'Delete', 
                     article_path(@article), 
-                                method: :delete 
+                                method: :delete,
+                                data: { confirm: 'Are you sure?' } 
                                  %>     
     </p>
         
 <% end %>
  
 <%= link_to 'Back', article_path %>
-
-<%# data: { confirm: 'Are you sure?' } %>

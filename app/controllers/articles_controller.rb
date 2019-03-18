@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
     private
 
     def check_journalist
-        if user_signed_in? && current_user.journalist?
+        if user_signed_in? && current_user.journalist? || current_user.editor?
             true
         else
             redirect_to root_path, notice: 'Permission denied.'

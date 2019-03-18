@@ -32,6 +32,6 @@ When("I click {string}") do |element|
 end
 
 And("I click the popup") do
-    find_button('OK').click
+    page.driver.browser.switch_to.alert.accept
 end
   

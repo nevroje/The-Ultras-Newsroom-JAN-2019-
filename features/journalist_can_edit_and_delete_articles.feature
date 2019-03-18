@@ -26,12 +26,13 @@ Feature: Journalist can edit and delete articles
         And I click "Back"
         Then I should see "Voted worst mead recipe"
         
+        @javascript
     Scenario: Journalist can delete articles
         When I visit the journalist page
         Then I should see "Voted best mead recipe"
         And I click "Voted best mead recipe"
         And I click "Edit"
         And I click "Delete"
-        # And I click the popup
+        And I click the popup
         And I should be on the "/articles/new" page
         Then I should not see "Voted best mead recipe"
