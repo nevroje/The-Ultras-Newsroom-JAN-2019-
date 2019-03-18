@@ -12,7 +12,7 @@ Feature: Journalist can create articles
         And I am logged in as "jocke@craft.se"
 
     Scenario: Journalist can create article
-        When I visit the journalist page
+        Given I visit the journalist page
         And I fill in "Title" with "Vikings living amongst us"
         And I fill in "Lead" with "Hurra"
         And I fill in "Content" with "Vad kul"
@@ -20,7 +20,7 @@ Feature: Journalist can create articles
         Then I should see "Article was successfully created."
 
     Scenario: Journalist can't create article [Sad path]
-        When I visit the journalist page
+        Given I visit the journalist page
         And I fill in "Title" with "Vikings living amongst us"
         And I fill in "Lead" with "Hurra"
         And I click "Save Article"

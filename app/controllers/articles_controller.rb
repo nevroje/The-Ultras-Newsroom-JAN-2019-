@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
     protect_from_forgery
-    before_action :check_journalist, only: [:create, :new]
+    before_action :check_user, only: [:create, :new]
     before_action :authenticate_user!, only: [:create, :new]
     def index
         @articles = Article.all.where(approved: true)
@@ -44,10 +44,20 @@ class ArticlesController < ApplicationController
        
         redirect_to new_article_path
     end
+
+    def publish
+        @article = Article.find(params[:id])
+        @article = Article.where(is_active: true)
+    end
+
+    def take_down
+        @article = Article.find(params[:id])
+        @article = Article.where(is_active: false)
+    end
        
     private
 
-    def check_journalist
+    def check_user
         if user_signed_in? && current_user.journalist? || current_user.editor?
             true
         else

@@ -34,4 +34,7 @@ end
 And("I click the popup") do
     page.driver.browser.switch_to.alert.accept
 end
-  
+
+Given("I visit the editor page") do
+    visit new_article_path
+end

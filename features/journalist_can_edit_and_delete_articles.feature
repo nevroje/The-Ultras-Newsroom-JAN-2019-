@@ -16,7 +16,7 @@ Feature: Journalist can edit and delete articles
         And I am logged in as "jocke@craft.se"
 
     Scenario: Journalist can edit articles
-        When I visit the journalist page
+        Given I visit the journalist page
         Then I should see "Voted best mead recipe"
         And I should see "Ancient viking grave discovered"
         And I click "Voted best mead recipe"
@@ -28,7 +28,7 @@ Feature: Journalist can edit and delete articles
         
         @javascript
     Scenario: Journalist can delete articles
-        When I visit the journalist page
+        Given I visit the journalist page
         Then I should see "Voted best mead recipe"
         And I click "Voted best mead recipe"
         And I click "Edit"
