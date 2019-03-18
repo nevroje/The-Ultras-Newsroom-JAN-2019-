@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
     before_action :check_journalist, only: [:create, :new]
     before_action :authenticate_user!, only: [:create, :new]
     def index
-        @articles = Article.all
+        @articles = Article.all.find_by(approved_by_editor: "approved")
     end
 
     def new
