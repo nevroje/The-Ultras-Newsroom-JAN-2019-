@@ -1,0 +1,16 @@
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+      <%= form.label :title %>
+      <%= form.text_field :title, required: true %>
+      <%= form.label :lead %>
+      <%= form.text_area :lead, required: true %>
+      <%= form.label :content %>
+      <%= form.text_area :content, required: true %>
+      <%= form.submit %>
+<% end %>
+
+<% @articles.each do |article|%>
+    <%=  link_to(article_path(article)) do %>
+        <%= article.title %>
+        <%= article.lead %>
+    <% end %>
+<% end %>

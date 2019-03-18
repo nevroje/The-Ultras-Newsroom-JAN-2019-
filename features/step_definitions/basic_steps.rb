@@ -30,3 +30,8 @@ end
 When("I click {string}") do |element|
     click_on element
 end
+
+And("I click the popup") do
+    page.driver.browser.switch_to.alert.accept
+end
+  
